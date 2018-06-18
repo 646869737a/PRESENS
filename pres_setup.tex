@@ -1,0 +1,103 @@
+%----------------------------------------
+% SWC datalogger 2.0 instructions for June 18th deployment on Little Mo
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}%call line spaceing
+\usepackage{booktabs}
+\usepackage{pdfpages}
+\usepackage{graphicx}
+\usepackage{sidecap}
+%\usepackage{changepage}% http://ctan.org/pkg/changepage
+\usepackage{amsmath}%call for fractions
+\usepackage{subfig}
+\usepackage{caption}
+\captionsetup[figure]{slc=off} % "slc" is an abbrevation for "singlelinecheck"
+\usepackage{tabularx} %set table dimension control
+%\usepackage[pass,showframe]{geometry} % just to show the margins
+%\usepackage{booktabs}
+\newcommand\tab[1][1cm]{\hspace*{#1}} %define set tab
+\usepackage{datetime}
+\newdateformat{monthdayyeardate}{%
+  \monthname[\THEMONTH]~\THEDAY, \THEYEAR} %call date in format month day, year
+\linespread{1.3}
+\usepackage{rotating}
+%call environment for single spaceing
+\newenvironment{singlelines}[1]
+  {\begin{spacing}{#1}}
+  {\end{spacing}}
+%----------------------------------------
+
+\begin{document}
+\subsection*{PRESENS SETUP INSTRUCTIONS}
+
+ 1. Connect Transducer to PRESENS Board\\
+\tab  black wire to A1 terminal (5th pin from left)\\
+\tab red wire to 12v terminal  (6th pin from right)\\
+2. Connect Battery to Charge Controller\\
+3. Connect Solar Panel to Charge Controller\\
+4. Connect PRES power supply to Charge Controller\\
+\tab red wire to positive (+), white wire to negative (-) terminal\\
+
+\begin{figure}[h!]	% start with insert figure call
+\centering
+\captionsetup{justification=centering}%center caption
+\includegraphics[width=1\textwidth]{PRES_CONN.jpg}\\
+\caption{PRESENS connection layout for SATELLITE setup.}
+\end{figure}
+
+\newpage
+\subsection*{PRESENS PROCEDURE FOLLOWING POWERING-UP DEVICE}
+\noindent All PRESENS devices record to SD Card 1/hour regardless if communications fail.
+\subsection*{CELLULAR MODEM}
+\noindent Once board is powered on, the device automatically connections and pushes to 4d. There is nothing for the user to do if device can connect to cell network. Call office to see if device is connected.\\
+\subsection*{SATELLITE MODEM }
+\noindent Once power is provided to board, follow these steps:\\
+\noindent 1). WAIT 30 seconds.\\
+\noindent 2). HIT BLACK RESET BUTTON.\\
+\noindent 3). WAIT 2 Minutes.\\
+\noindent 4). PUSH BLUE button (note time) a reading will be taken.\\
+\begin{figure}[h!]	% start with insert figure call
+\centering
+\captionsetup{justification=centering}%center caption
+\includegraphics[scale=0.2]{reset.jpg}\\
+%\caption{PRESENS connection layout for SATELITE setup.}
+\end{figure}\\
+\noindent call office to see if data sent to 4D once in cell range.\\
+\noindent Note modem serial number and which site id its located at.
+\subsection*{DISCONNECTING PRESENS PROCEDURE}
+1). Disconnect white wire to PRESENCE from Charge Controller.\\
+2). Disconnect red wire to PRESENCE from Charge Controller.\\
+3). Disconnect Red Wire to Solar Panel from Charge Controller.\\
+4). Disconnect Battery from Charge Controller.\\
+\newpage
+\subsection*{RockBLOCK SATcom connection pinout}
+\begin{figure}[h!]	% start with insert figure call
+\centering
+\captionsetup{justification=centering}%center caption
+\includegraphics[width=1\textwidth]{pinlayout.jpg}\\
+%\caption{PRESENS connection layout for SATELITE setup.}
+\end{figure}
+\noindent 5 Wires to STmicro Board\\
+\textcolor{red}{Red wire} to 5v (left side/5th from top)\\
+\textcolor{black}{Black wire} to GND (left side/6th from top)\\
+\textcolor{green}{Green wire} to D10 (right side/11th from bottom)\\
+\textcolor{orange}{Orange wire}  to D8 (right side/9th from bottom)\\
+\textbf{\textcolor{yellow}{Yellow wire}} to D2 (right side/3rd from bottom)\\
+
+\newpage
+\noindent \textbf{Options for securing black transducer cable within BOX}\\
+\noindent If black and red wires are long enough, cable length may be sufficient and support itself.\\
+
+\noindent if not, there is a black zip tie block header glued to the base to act as a anchor, transducer cable could be zip tied to this anchor.\\
+
+\noindent White Cap with Cord Grip.\\
+\noindent The grey cord grip can be used to prevent transducer cable from slipping through port hole. Satellite cable and solar panel cable can also be passed through white cap.\\
+
+\noindent If black and red wires are too short to reach terminals on PRESENS, there are two options for splicing.\\
+\noindent 1). Use spare wire to lengthen connection to terminal with grey screw terminal caps.\\
+\noindent 2). Use spare wire to lengthen connection to terminal with grey quick connects.\\ 
+
+
+\noindent Caution!!! Wires coming off RockBLOCK sat board are not super strong. \textbf{Becareful working around bulkhead connections -- wires may pull out easily} \\
+
+\end{document}
